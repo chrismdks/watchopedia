@@ -3,7 +3,9 @@ import { useState } from "react"; // using Hook named useState
 const Counter = () => {
 
     //setCounter: to update this particular value (counter)
-    const [counter, setCounter] = useState(10);
+    const [counter, setCounter] = useState(() => {
+        return 10;
+    });
     
     function incrementCounter() {
         setCounter((prevState) => {
