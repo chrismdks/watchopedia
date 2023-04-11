@@ -3,18 +3,18 @@ import { useState } from "react"; // using Hook named useState
 const Counter = () => {
 
     //setCounter: to update this particular value (counter)
-    const [counter, setCounter] = useState(() => {
-        return 10;
+    const [counterState, setCounterState] = useState(() => {
+        return {counter: 10};
     });
     
     function incrementCounter() {
-        setCounter((prevState) => {
-            return prevState+1
+        setCounterState((prevState) => {
+            return {counter: prevState.counter + 1}
         })
     }
     function decrementCounter() {
-        setCounter((prevState) => {
-            return prevState-1
+        setCounterState((prevState) => {
+            return {counter: prevState.counter - 1}
         })
     }
 
@@ -26,7 +26,7 @@ const Counter = () => {
             <button className="btn btn-danger m-1" onClick={decrementCounter}>-1</button>
             <br/>
             <span className="h4">
-                Counter: &nbsp; <span className="text-warning">{counter}</span>
+                Counter: &nbsp; <span className="text-warning">{counterState.counter}</span>
             </span>
         </div>
     )
